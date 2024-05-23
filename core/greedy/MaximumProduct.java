@@ -1,4 +1,4 @@
-package core.greedy_02;
+package core.greedy;
 
 /**
  * 「分成k份的最大乘积」
