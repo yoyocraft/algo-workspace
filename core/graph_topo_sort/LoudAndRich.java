@@ -1,4 +1,4 @@
-package core.graph_topo_sort_ext;
+package core.graph_topo_sort;
 
 import java.util.ArrayList;
 import java.util.List;
