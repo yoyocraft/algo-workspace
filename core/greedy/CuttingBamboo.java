@@ -1,39 +1,38 @@
 package core.greedy;
 
+/**
+ * https://leetcode.cn/problems/jian-sheng-zi-ii-lcof/
+ */
 public class CuttingBamboo {
+
     /**
-     * https://leetcode.cn/problems/jian-sheng-zi-ii-lcof/
+     * @return (x ** n) % mod
      */
-    class Solution {
-
-        /**
-         * @return (x ** n) % mod
-         */
-        public static long pow(long x, int n, int mod) {
-            long ans = 1L;
-            while (n > 0) {
-                if ((n & 1) == 1) {
-                    ans = (ans * x) % mod;
-                }
-                n >>>= 1;
-                x = (x * x) % mod;
+    public static long pow(long x, int n, int mod) {
+        long ans = 1L;
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                ans = (ans * x) % mod;
             }
-            return ans;
+            n >>>= 1;
+            x = (x * x) % mod;
         }
-
-        public int cuttingBamboo(int n) {
-            if (n == 2) {
-                return 1;
-            }
-            if (n == 3) {
-                return 2;
-            }
-
-            final int MOD = (int) 1e9 + 7;
-
-            int tail = n % 3 == 0 ? 1 : (n % 3 == 1 ? 4 : 2);
-            int power = (tail == 1 ? n / 3 : (n - tail) / 3);
-            return (int) pow(3, power, MOD) * tail % MOD;
-        }
+        return ans;
     }
+
+    public int cuttingBamboo(int n) {
+        if (n == 2) {
+            return 1;
+        }
+        if (n == 3) {
+            return 2;
+        }
+
+        final int MOD = (int) 1e9 + 7;
+
+        int tail = n % 3 == 0 ? 1 : (n % 3 == 1 ? 4 : 2);
+        int power = (tail == 1 ? n / 3 : (n - tail) / 3);
+        return (int) pow(3, power, MOD) * tail % MOD;
+    }
+
 }
